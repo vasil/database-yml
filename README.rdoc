@@ -1,1 +1,35 @@
 = database-yml
+
+Ruby on Rails like database setup for Sinatra.
+
+== Instalation
+
+Within the Sinatra project create database-yml vendor directory and add the submodule:
+  
+  mkdir -p vendor/database-yml
+  git submodule add git://github.com/vasil/database-yml.git vendor/database-yml
+
+  git submodule init
+  git submodule update
+
+Create config/database.yml file, something like this:
+
+  development:
+    adapter: sqlite3
+    database: my_devel.db
+   
+  test:
+    adapter: sqlite3
+    database: my_test.db
+            
+  production:
+    adapter: mysql
+    host: localhost
+    database: my_db
+    username: my_username
+    password: my_password
+
+
+Add this line somewhere in your application
+
+  require "sinatra/database-yml"
